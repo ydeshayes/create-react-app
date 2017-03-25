@@ -1,0 +1,35 @@
+name: ui
+
+# The toolstack used to build the application.
+type: php:7.0
+build:
+    flavor: none
+
+# The configuration of app when it is exposed to the web.
+web:
+    locations:
+        "/":
+            root: "build"
+            index:
+                - "index.html"
+            expires: 300s
+            scripts: true
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
+                ^/robots\.txt$:
+                    allow: true
+
+disk: 2048
+
+# The hooks that will be performed when the package is deployed.
+hooks:
+    build: |
+      set -e
+      npm install -g yarn
+      TARGET=ps_ui make build
+
+runtime:
+    extensions:
+        - ldap

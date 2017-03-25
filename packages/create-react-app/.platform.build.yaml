@@ -1,0 +1,4 @@
+build: |
+  set -e
+  npm install -g yarn
+  TARGET=local dpkg-buildpackage -b -us -uc

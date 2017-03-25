@@ -1,5 +1,5 @@
 {
-  "name": "create-react-app",
+  "name": "create-react-app-platformsh",
   "version": "1.4.3",
   "keywords": [
     "react"
@@ -15,10 +15,15 @@
   },
   "files": [
     "index.js",
-    "createReactApp.js"
+    "createReactApp.js",
+    ".platform/routes.yaml",
+    ".platform/services.yaml",
+    ".platform.build.yaml",
+    ".platform.app.yaml",
+    "Makefile"
   ],
   "bin": {
-    "create-react-app": "./index.js"
+    "create-react-app-platformsh": "./index.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",

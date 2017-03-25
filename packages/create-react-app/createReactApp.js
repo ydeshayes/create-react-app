@@ -114,6 +114,36 @@ if (typeof projectName === 'undefined') {
   process.exit(1);
 }
 
+function createPlatformshFiles(root) {
+  console.log('Create platform.sh files...');
+  const platformConfigFolder = path.join(root, '.platform');
+  // Create the .platform folder if it not exist
+  fs.ensureDirSync(platformConfigFolder);
+  fs
+    .createReadStream(
+      path.resolve(path.join(__dirname, '.platform'), 'routes.yaml')
+    )
+    .pipe(fs.createWriteStream(path.join(platformConfigFolder, 'routes.yaml')));
+  fs
+    .createReadStream(
+      path.resolve(path.join(__dirname, '.platform'), 'services.yaml')
+    )
+    .pipe(
+      fs.createWriteStream(path.join(platformConfigFolder, 'services.yaml'))
+    );
+
+  fs
+    .createReadStream(path.resolve(__dirname, 'Makefile'))
+    .pipe(fs.createWriteStream(path.join(root, 'Makefile')));
+  fs
+    .createReadStream(path.resolve(__dirname, '.platform.app.yaml'))
+    .pipe(fs.createWriteStream(path.join(root, '.platform.app.yaml')));
+  fs
+    .createReadStream(path.resolve(__dirname, '.platform.build.yaml'))
+    .pipe(fs.createWriteStream(path.join(root, '.platform.build.yaml')));
+  console.log(chalk.green('Creation successful'));
+}
+
 function printValidationResults(results) {
   if (typeof results !== 'undefined') {
     results.forEach(error => {
@@ -163,6 +193,7 @@ function createApp(name, verbose, version, useNpm, template) {
 
   const useYarn = useNpm ? false : shouldUseYarn();
   const originalDirectory = process.cwd();
+  createPlatformshFiles(root);
   process.chdir(root);
   if (!useYarn && !checkThatNpmCanReadCwd()) {
     process.exit(1);
@@ -595,6 +626,10 @@ function isSafeToCreateProjectIn(root, name) {
     '.hg',
     '.hgignore',
     '.hgcheck',
+    '.platform',
+    'Makefile',
+    'platform.app.yaml',
+    'platform.build.yaml',
   ];
   console.log();
 
