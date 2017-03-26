@@ -1,7 +1,23 @@
-# create-react-app
+# Create Platform.sh React App
 
-This package includes the global command for [Create React App](https://github.com/facebookincubator/create-react-app).<br>
-Please refer to its documentation:
+This is a fork from [Create React apps](https://github.com/facebookincubator/create-react-app), platform.sh ready, with no build configuration.
 
-* [Getting Started](https://github.com/facebookincubator/create-react-app/blob/master/README.md#getting-started) – How to create a new app.
-* [User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
+It will generate all the platform.sh confuration files for you.
+
+## Quick Overview
+
+```sh
+npm install -g create-react-app-platformsh
+
+create-react-app-platformsh my-app
+cd my-app/
+```
+
+Create a new project through the Platform.sh user interface and select "Import an existing project" when prompted.
+
+Run the provided Git commands to add a Platform.sh remote and push the code to the Platform.sh repository.
+
+That's it !
+
+For more information about the commands, please refer to the
+[Create React apps](https://github.com/facebookincubator/create-react-app) documentation
