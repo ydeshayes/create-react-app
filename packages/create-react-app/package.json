@@ -2,7 +2,9 @@
   "name": "create-react-app-platformsh",
   "version": "1.4.3",
   "keywords": [
-    "react"
+    "react",
+    "platform.sh",
+    "platformsh"
   ],
   "description": "Create React apps with no build configuration.",
   "repository": "facebookincubator/create-react-app",
