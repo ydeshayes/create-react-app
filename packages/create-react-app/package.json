@@ -7,13 +7,13 @@
     "platformsh"
   ],
   "description": "Create React apps with no build configuration.",
-  "repository": "facebookincubator/create-react-app",
+  "repository": "ydeshayes/create-react-app-platformsh",
   "license": "MIT",
   "engines": {
     "node": ">=4"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/ydeshayes/create-react-app-platformsh/issues"
   },
   "files": [
     "index.js",
