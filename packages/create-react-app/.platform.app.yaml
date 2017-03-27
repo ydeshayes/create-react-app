@@ -1,7 +1,7 @@
 name: ui
 
 # The toolstack used to build the application.
-type: php:7.0
+type: nodejs:6.9
 build:
     flavor: none
 
@@ -22,14 +22,12 @@ web:
                     allow: true
 
 disk: 2048
-
+dependencies:
+  nodejs:
+    yarn: "*"
 # The hooks that will be performed when the package is deployed.
 hooks:
     build: |
       set -e
-      npm install -g yarn
-      TARGET=ps_ui make build
-
-runtime:
-    extensions:
-        - ldap
+      yarn install
+      npm run build

@@ -131,16 +131,9 @@ function createPlatformshFiles(root) {
     .pipe(
       fs.createWriteStream(path.join(platformConfigFolder, 'services.yaml'))
     );
-
-  fs
-    .createReadStream(path.resolve(__dirname, 'Makefile'))
-    .pipe(fs.createWriteStream(path.join(root, 'Makefile')));
   fs
     .createReadStream(path.resolve(__dirname, '.platform.app.yaml'))
     .pipe(fs.createWriteStream(path.join(root, '.platform.app.yaml')));
-  fs
-    .createReadStream(path.resolve(__dirname, '.platform.build.yaml'))
-    .pipe(fs.createWriteStream(path.join(root, '.platform.build.yaml')));
   console.log(chalk.green('Creation successful'));
 }
 

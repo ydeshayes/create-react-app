@@ -13,4 +13,4 @@ http://{default}/:
   ssi:
     enabled: false
   type: upstream
-  upstream: ui:php
+  upstream: ui:http

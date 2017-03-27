@@ -20,9 +20,7 @@
     "createReactApp.js",
     ".platform/routes.yaml",
     ".platform/services.yaml",
-    ".platform.build.yaml",
-    ".platform.app.yaml",
-    "Makefile"
+    ".platform.app.yaml"
   ],
   "bin": {
     "create-react-app-platformsh": "./index.js"
