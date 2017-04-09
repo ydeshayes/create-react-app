@@ -9,7 +9,7 @@ build:
 web:
     locations:
         "/":
-            root: "build"
+            root: "build_platform"
             index:
                 - "index.html"
             expires: 300s
