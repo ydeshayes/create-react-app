@@ -120,6 +120,19 @@ module.exports = {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   },
+  externals: {
+    platformsh_variables: 'platformsh_variables',
+  },
+  // @remove-on-eject-begin
+  // Resolve loaders (webpack plugins for CSS, images, transpilation) from the
+  // directory of `react-scripts` itself rather than the project directory.
+  resolveLoader: {
+    modules: [
+      paths.ownNodeModules,
+      // Lerna hoists everything, so we need to look in our app directory
+      paths.appNodeModules,
+    ],
+  },
   module: {
     strictExportPresence: true,
     rules: [
