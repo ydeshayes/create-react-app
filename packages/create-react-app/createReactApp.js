@@ -293,7 +293,12 @@ function run(
   useYarn
 ) {
   const packageToInstall = getInstallPackage(version);
-  const allDependencies = ['react', 'react-dom', packageToInstall];
+  const allDependencies = [
+    'react',
+    'react-dom',
+    packageToInstall,
+    'platformsh_variables',
+  ];
 
   console.log('Installing packages. This might take a couple of minutes.');
   getPackageName(packageToInstall)
@@ -390,7 +395,7 @@ function run(
 }
 
 function getInstallPackage(version) {
-  let packageToInstall = 'react-scripts';
+  let packageToInstall = 'react-scripts-platformsh';
   const validSemver = semver.valid(version);
   if (validSemver) {
     packageToInstall += `@${validSemver}`;
@@ -544,8 +549,10 @@ function checkAppName(appName) {
   }
 
   // TODO: there should be a single place that holds the dependencies
-  const dependencies = ['react', 'react-dom', 'react-scripts'].sort();
-  if (dependencies.indexOf(appName) >= 0) {
+  const dependencies = ['react', 'react-dom', 'platformsh_variables'];
+  const devDependencies = ['react-scripts'];
+  const allDependencies = dependencies.concat(devDependencies).sort();
+  if (allDependencies.indexOf(appName) >= 0) {
     console.error(
       chalk.red(
         `We cannot create a project called ${chalk.green(
