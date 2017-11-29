@@ -20,8 +20,8 @@ const execSync = require('child_process').execSync;
 const chalk = require('chalk');
 const paths = require('../config/paths');
 const createJestConfig = require('./utils/createJestConfig');
-const inquirer = require('react-dev-utils/inquirer');
-const spawnSync = require('react-dev-utils/crossSpawn').sync;
+const inquirer = require('react-dev-utils-platformsh/inquirer');
+const spawnSync = require('react-dev-utils-platformsh/crossSpawn').sync;
 
 const green = chalk.green;
 const cyan = chalk.cyan;
